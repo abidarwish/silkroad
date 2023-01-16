@@ -39,13 +39,13 @@
       "sniffing": null
     },
     {
-      "listen": "${SERVER_PUBLIC_IP}",
-      "port": 80,
+      "listen": "${publicIP}",
+      "port": ${VMESS_PORT},
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "80c8f7ac-c26d-41aa-8b11-3eb7287915ae",
+            "id": "${UUID_VMESS}",
             "alterId": 0
           }
         ],
@@ -61,7 +61,7 @@
           }
         }
       },
-      "tag": "inbound-80",
+      "tag": "inbound-${VMESS_PORT}",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -71,13 +71,13 @@
       }
     },
     {
-      "listen": "${SERVER_PUBLIC_IP}",
-      "port": 443,
+      "listen": "${publicIP}",
+      "port": ${VLESS_PORT},
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "3e68a3d9-e618-4bc9-b80a-b93567c8f746",
+            "id": "${UUID_VLESS}",
             "flow": "xtls-rprx-direct"
           }
         ],
@@ -86,31 +86,31 @@
           {
             "alpn": "http1.1",
             "path": "/trojan",
-            "dest": "8080",
+            "dest": "${TROJANWSTLS_PORT}",
+            "xver": 1
+          },
+          {
+            "alpn": "http1.1",
+            "path": "/vlessws",
+            "dest": "${VLESSWSTLS_PORT}",
             "xver": 1
           }
         ]
       },
       "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
+        "network": "tcp",
+        "security": "xtls",
+        "xtlsSettings": {
           "serverName": "",
           "certificates": [
             {
-              "certificateFile": "",
-              "keyFile": ""
+              "certificateFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem",
+              "keyFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem"
             }
           ]
-        },
-        "wsSettings": {
-          "path": "/vless",
-          "headers": {
-            "Host": "${DOMAIN_NAME}"
-          }
         }
       },
-      "tag": "inbound-443",
+      "tag": "inbound-${VLESS_PORT}",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -120,13 +120,78 @@
       }
     },
     {
-      "listen": "${SERVER_PUBLIC_IP}",
-      "port": 8080,
+      "listen": "${publicIP}",
+      "port": ${VLESSWSTLS_PORT},
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "${UUID_VLESSWSTLS}",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/vlessws",
+          "headers": {
+            "Host": "${DOMAIN_NAME}"
+          }
+        }
+      },
+      "tag": "inbound-${VLESSWSTLS_PORT}",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": "${publicIP}",
+      "port": ${TROJANWSTLS_PORT},
       "protocol": "trojan",
       "settings": {
         "clients": [
           {
-            "password": "MncqrXt9M8",
+            "password": "${UUID_TROJANWSTLS}",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/trojanws",
+          "headers": {
+            "Host": "${DOMAIN_NAME}"
+          }
+        }
+      },
+      "tag": "inbound-${TROJANWSTLS_PORT}",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": "${publicIP}",
+      "port": ${TROJAN_PORT},
+      "protocol": "trojan",
+      "settings": {
+        "clients": [
+          {
+            "password": "${UUID_TROJAN}",
             "flow": "xtls-rprx-direct"
           }
         ],
@@ -139,8 +204,8 @@
           "serverName": "",
           "certificates": [
             {
-              "certificateFile": "",
-              "keyFile": ""
+              "certificateFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem",
+              "keyFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem"
             }
           ]
         },
@@ -150,7 +215,7 @@
           }
         }
       },
-      "tag": "inbound-8080",
+      "tag": "inbound-${TROJAN_PORT}",
       "sniffing": {
         "enabled": true,
         "destOverride": [
