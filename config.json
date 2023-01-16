@@ -1,5 +1,5 @@
 {
-  "log": null,
+  "log": "/var/log/xray/access.log",
   "routing": {
     "rules": [
       {
@@ -39,7 +39,7 @@
       "sniffing": null
     },
     {
-      "listen": "94.237.78.190",
+      "listen": "${SERVER_PUBLIC_IP}",
       "port": 80,
       "protocol": "vmess",
       "settings": {
@@ -57,7 +57,7 @@
         "wsSettings": {
           "path": "/vmessws",
           "headers": {
-            "Host": "uc.abidarwish.online"
+            "Host": "${DOMAIN_NAME}"
           }
         }
       },
@@ -71,7 +71,7 @@
       }
     },
     {
-      "listen": "94.237.78.190",
+      "listen": "${SERVER_PUBLIC_IP}",
       "port": 443,
       "protocol": "vless",
       "settings": {
@@ -84,7 +84,6 @@
         "decryption": "none",
         "fallbacks": [
           {
-            "name": "i8",
             "alpn": "http1.1",
             "path": "/trojan",
             "dest": "8080",
@@ -107,7 +106,7 @@
         "wsSettings": {
           "path": "/vless",
           "headers": {
-            "Host": "uc.abidarwish.inline"
+            "Host": "${DOMAIN_NAME}"
           }
         }
       },
@@ -121,7 +120,7 @@
       }
     },
     {
-      "listen": "94.237.78.190",
+      "listen": "${SERVER_PUBLIC_IP}",
       "port": 8080,
       "protocol": "trojan",
       "settings": {
