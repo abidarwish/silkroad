@@ -47,6 +47,7 @@
           {
             "id": "UUID_VMESS",
             "alterId": 0
+# vmess
           }
         ],
         "disableInsecureEncryption": false
@@ -79,6 +80,7 @@
           {
             "id": "UUID_VLESS",
             "flow": "xtls-rprx-direct"
+# vless
           }
         ],
         "decryption": "none",
@@ -128,6 +130,7 @@
           {
             "id": "UUID_VLESSWSTLS",
             "flow": "xtls-rprx-direct"
+# vlesswstls
           }
         ],
         "decryption": "none",
@@ -161,6 +164,7 @@
           {
             "password": "UUID_TROJANWSTLS",
             "flow": "xtls-rprx-direct"
+# trojanwstls
           }
         ],
         "fallbacks": []
@@ -193,6 +197,7 @@
           {
             "password": "UUID_TROJAN",
             "flow": "xtls-rprx-direct"
+# trojan
           }
         ],
         "fallbacks": []
