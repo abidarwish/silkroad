@@ -39,13 +39,13 @@
       "sniffing": null
     },
     {
-      "listen": "${publicIP}",
-      "port": ${VMESS_PORT},
+      "listen": "PUBLIC_IP",
+      "port": VMESS_PORT,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "${UUID_VMESS}",
+            "id": "UUID_VMESS",
             "alterId": 0
           }
         ],
@@ -57,11 +57,11 @@
         "wsSettings": {
           "path": "/vmessws",
           "headers": {
-            "Host": "${DOMAIN_NAME}"
+            "Host": "DOMAIN_NAME"
           }
         }
       },
-      "tag": "inbound-${VMESS_PORT}",
+      "tag": "inbound-VMESS_PORT",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -71,13 +71,13 @@
       }
     },
     {
-      "listen": "${publicIP}",
-      "port": ${VLESS_PORT},
+      "listen": "PUBLIC_IP",
+      "port": VLESS_PORT,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "${UUID_VLESS}",
+            "id": "UUID_VLESS",
             "flow": "xtls-rprx-direct"
           }
         ],
@@ -85,14 +85,14 @@
         "fallbacks": [
           {
             "alpn": "http1.1",
-            "path": "/trojan",
-            "dest": "${TROJANWSTLS_PORT}",
+            "path": "/trojanws",
+            "dest": "TROJANWSTLS_PORT",
             "xver": 1
           },
           {
             "alpn": "http1.1",
             "path": "/vlessws",
-            "dest": "${VLESSWSTLS_PORT}",
+            "dest": "VLESSWSTLS_PORT",
             "xver": 1
           }
         ]
@@ -104,13 +104,13 @@
           "serverName": "",
           "certificates": [
             {
-              "certificateFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem",
-              "keyFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem"
+              "certificateFile": "/etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem",
+              "keyFile": "/etc/letsencrypt/live/DOMAIN_NAME/privkey.pem"
             }
           ]
         }
       },
-      "tag": "inbound-${VLESS_PORT}",
+      "tag": "inbound-VLESS_PORT",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -120,13 +120,13 @@
       }
     },
     {
-      "listen": "${publicIP}",
-      "port": ${VLESSWSTLS_PORT},
+      "listen": "PUBLIC_IP",
+      "port": VLESSWSTLS_PORT,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "${UUID_VLESSWSTLS}",
+            "id": "UUID_VLESSWSTLS",
             "flow": "xtls-rprx-direct"
           }
         ],
@@ -139,11 +139,11 @@
         "wsSettings": {
           "path": "/vlessws",
           "headers": {
-            "Host": "${DOMAIN_NAME}"
+            "Host": "DOMAIN_NAME"
           }
         }
       },
-      "tag": "inbound-${VLESSWSTLS_PORT}",
+      "tag": "inbound-VLESSWSTLS_PORT",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -153,13 +153,13 @@
       }
     },
     {
-      "listen": "${publicIP}",
-      "port": ${TROJANWSTLS_PORT},
+      "listen": "PUBLIC_IP",
+      "port": TROJANWSTLS_PORT,
       "protocol": "trojan",
       "settings": {
         "clients": [
           {
-            "password": "${UUID_TROJANWSTLS}",
+            "password": "UUID_TROJANWSTLS",
             "flow": "xtls-rprx-direct"
           }
         ],
@@ -171,11 +171,11 @@
         "wsSettings": {
           "path": "/trojanws",
           "headers": {
-            "Host": "${DOMAIN_NAME}"
+            "Host": "DOMAIN_NAME"
           }
         }
       },
-      "tag": "inbound-${TROJANWSTLS_PORT}",
+      "tag": "inbound-TROJANWSTLS_PORT",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -185,13 +185,13 @@
       }
     },
     {
-      "listen": "${publicIP}",
-      "port": ${TROJAN_PORT},
+      "listen": "PUBLIC_IP",
+      "port": TROJAN_PORT,
       "protocol": "trojan",
       "settings": {
         "clients": [
           {
-            "password": "${UUID_TROJAN}",
+            "password": "UUID_TROJAN",
             "flow": "xtls-rprx-direct"
           }
         ],
@@ -204,8 +204,8 @@
           "serverName": "",
           "certificates": [
             {
-              "certificateFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem",
-              "keyFile": "/etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem"
+              "certificateFile": "/etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem",
+              "keyFile": "/etc/letsencrypt/live/DOMAIN_NAME/privkey.pem"
             }
           ]
         },
@@ -215,7 +215,7 @@
           }
         }
       },
-      "tag": "inbound-${TROJAN_PORT}",
+      "tag": "inbound-TROJAN_PORT",
       "sniffing": {
         "enabled": true,
         "destOverride": [
