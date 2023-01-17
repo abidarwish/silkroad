@@ -41,7 +41,7 @@
       "sniffing": null
     },
     {
-      "listen": "127.0.0.1",
+      "listen": "PUBLIC_IP",
       "port": VMESS_PORT,
       "protocol": "vmess",
       "settings": {
@@ -74,7 +74,7 @@
       }
     },
     {
-      "listen": "127.0.0.1",
+      "listen": "PUBLIC_IP",
       "port": VLESS_PORT,
       "protocol": "vless",
       "settings": {
@@ -90,13 +90,13 @@
           {
             "alpn": "http1.1",
             "path": "/trojanws",
-            "dest": "TROJANWSTLS_PORT",
+            "dest": TROJANWSTLS_PORT,
             "xver": 1
           },
           {
             "alpn": "http1.1",
             "path": "/vlessws",
-            "dest": "VLESSWSTLS_PORT",
+            "dest": VLESSWSTLS_PORT,
             "xver": 1
           }
         ]
@@ -142,6 +142,7 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
+          "acceptProxyProtocol": true,
           "path": "/vlessws",
           "headers": {
             "Host": "DOMAIN_NAME"
@@ -175,6 +176,7 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
+          "acceptProxyProtocol": true,
           "path": "/trojanws",
           "headers": {
             "Host": "DOMAIN_NAME"
@@ -191,7 +193,7 @@
       }
     },
     {
-      "listen": "127.0.0.1",
+      "listen": "PUBLIC_IP",
       "port": TROJAN_PORT,
       "protocol": "trojan",
       "settings": {
@@ -209,6 +211,9 @@
         "security": "xtls",
         "xtlsSettings": {
           "serverName": "",
+          "alpn": [
+                        "http/1.1"
+           ],
           "certificates": [
             {
               "certificateFile": "/etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem",
