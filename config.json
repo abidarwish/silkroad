@@ -1,5 +1,7 @@
 {
-  "log": "/var/log/xray/access.log",
+  "log": {
+    "access": "/var/log/xray/access.log"
+  },
   "routing": {
     "rules": [
       {
@@ -39,7 +41,7 @@
       "sniffing": null
     },
     {
-      "listen": "PUBLIC_IP",
+      "listen": "127.0.0.1",
       "port": VMESS_PORT,
       "protocol": "vmess",
       "settings": {
@@ -72,7 +74,7 @@
       }
     },
     {
-      "listen": "PUBLIC_IP",
+      "listen": "127.0.0.1",
       "port": VLESS_PORT,
       "protocol": "vless",
       "settings": {
@@ -122,7 +124,7 @@
       }
     },
     {
-      "listen": "PUBLIC_IP",
+      "listen": "127.0.0.1",
       "port": VLESSWSTLS_PORT,
       "protocol": "vless",
       "settings": {
@@ -156,7 +158,7 @@
       }
     },
     {
-      "listen": "PUBLIC_IP",
+      "listen": "127.0.0.1",
       "port": TROJANWSTLS_PORT,
       "protocol": "trojan",
       "settings": {
@@ -189,7 +191,7 @@
       }
     },
     {
-      "listen": "PUBLIC_IP",
+      "listen": "127.0.0.1",
       "port": TROJAN_PORT,
       "protocol": "trojan",
       "settings": {
