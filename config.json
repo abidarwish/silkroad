@@ -106,6 +106,9 @@
         "security": "xtls",
         "xtlsSettings": {
           "serverName": "",
+          "alpn": [
+              "http/1.1"
+           ],
           "certificates": [
             {
               "certificateFile": "/etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem",
@@ -212,7 +215,7 @@
         "xtlsSettings": {
           "serverName": "",
           "alpn": [
-                        "http/1.1"
+               "http/1.1"
            ],
           "certificates": [
             {
