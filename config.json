@@ -48,7 +48,7 @@
         "clients": [
           {
             "id": "UUID_VMESS",
-            "alterId": 0
+            "flow": "xtls-rprx-direct"
 # vmess
           }
         ],
@@ -88,13 +88,11 @@
         "decryption": "none",
         "fallbacks": [
           {
-            "alpn": "http1.1",
             "path": "/trojanws",
             "dest": TROJANWSTLS_PORT,
             "xver": 1
           },
           {
-            "alpn": "http1.1",
             "path": "/vlessws",
             "dest": VLESSWSTLS_PORT,
             "xver": 1
