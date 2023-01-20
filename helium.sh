@@ -469,8 +469,8 @@ function updateHelium() {
 }
 
 function exitHelium() {
+	kill -9 $(pgrep -f /usr/local/sbin/menu)
 	menu
-	exit 0
 }
 
 function mainMenu() {
