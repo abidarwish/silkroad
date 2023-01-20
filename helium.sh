@@ -80,9 +80,8 @@ function install() {
 	sleep 1
 	echo -e " Installation completed"
 	sleep 1
-	echo -e " Type \e[1;32mhelium\e[0m to start"
-	echo
-	exit 0
+	read -p " Press Enter to continue..."
+	helium
 }
 
 function start() {
@@ -176,11 +175,10 @@ function reinstall() {
 	echo "nameserver 127.0.0.1" >/etc/resolv.conf
 	echo "nameserver 127.0.0.1" >/etc/resolvconf/resolv.conf.d/head
 	sleep 1
-	echo -e " Installation completed"
+	echo -e " Reinstallation completed"
 	sleep 1
-	echo -e " Type \e[1;32mhelium\e[0m to start"
-	echo
-	exit 0
+	read -p " Press Enter to continue..."
+	helium
 }
 
 function uninstall() {
@@ -201,7 +199,9 @@ function uninstall() {
 	sleep 2
 	echo -e $GREEN"done"$NOCOLOR
 	echo
+	read -p " Press Enter to continue..."
 	rm -rf /usr/local/sbin/helium
+	menu
 	exit 0
 }
 
@@ -464,8 +464,12 @@ function updateHelium() {
 	sleep 1
 	echo
 	echo
-	echo -e " Type \e[1;32mhelium\e[0m to start"
-	echo
+	read -p " Press Enter to continue..."
+	helium
+}
+
+function exitHelium() {
+	menu
 	exit 0
 }
 
@@ -477,12 +481,15 @@ function mainMenu() {
 	if [[ $(systemctl is-active dnsmasq) == "active" ]]; then
 		printf " %-25s %1s \e[1;32m%7s\e[0m" "Dnsmasq" ":" "running"
 		printf "\n %-25s %1s \e[1;32m%7s\e[0m" "Active since" ":" "$(systemctl status dnsmasq.service | grep -w "Active" | awk '{print $9,$10,$11,$12}')"
+		NAMESERVER=$(grep -w -E "^server" /etc/dnsmasq.conf | head -1 | awk -F'=' '{print $2}')
+		printf "\n %-25s %1s \e[1;32m%7s\e[0m" "Nameserver" ":" "$NAMESERVER"
+		printf "\n %-25s %1s \e[1;32m%'d\n\e[0m" "Blocked hostnames" ":" "$(cat ${dnsmasqHostFinalList} | wc -l)"
 	else
 		printf " %-25s %1s \e[1;31m%7s\e[0m" "Dnsmasq" ":" "stopped"
+		NAMESERVER=$(grep -w -E "^nameserver" /etc/resolv.conf | head -1 | awk '{print $2}')
+		printf "\n %-25s %1s \e[1;32m%7s\e[0m" "Nameserver" ":" "$NAMESERVER"
+		printf "\n %-25s %1s \e[1;31m%'d\n\e[0m" "Blocked hostnames" ":" "none"
 	fi
-	NAMESERVER=$(grep -w -E "^server" /etc/dnsmasq.conf | head -n 1 | awk -F'=' '{print $2}')
-	printf "\n %-25s %1s \e[1;32m%7s\e[0m" "Nameserver" ":" "$NAMESERVER"
-	printf "\n %-25s %1s \e[1;32m%'d\n\e[0m" "Blocked hostnames" ":" "$(cat ${dnsmasqHostFinalList} | wc -l)"
 	echo
 	echo -e " \e[1mMachine Info\e[0m"
 	CPU=$(cat /proc/cpuinfo | grep "model\|Model" | tail -n 1 | awk -F: '{print $2}' | cut -d " " -f2-4)
@@ -496,10 +503,11 @@ function mainMenu() {
 	UPTIME=$(uptime -p | sed 's/,//g' | awk '{print $2,$3", "$4,$5}')
 	DAILY_USAGE=$(vnstat -d --oneline | awk -F\; '{print $6}' | sed 's/ //')
 	MONTHLY_USAGE=$(vnstat -m --oneline | awk -F\; '{print $11}' | sed 's/ //')
+	printf " %-25s %1s %-7s\e[0m" "Vendor" ":" "${VENDOR} (${CITY})"
 	if [[ ${CPU_CORE} == 1 ]]; then
-		printf " %-25s %1s %-7s\e[0m" "CPU (single core)" ":" "${CPU} @ ${CPU_MHZ}Mhz"
+		printf "\n %-25s %1s %-7s\e[0m" "CPU (single core)" ":" "${CPU} @ ${CPU_MHZ}Mhz"
 	else
-		printf " %-25s %1s %-7s\e[0m" "CPU (${CPU_CORE} cores)" ":" "${CPU} @ ${CPU_MHZ}Mhz"
+		printf "\n %-25s %1s %-7s\e[0m" "CPU (${CPU_CORE} cores)" ":" "${CPU} @ ${CPU_MHZ}Mhz"
 	fi
 	printf "\n %-25s %1s %-7s\e[0m" "OS Version" ":" "${OS}"
 	printf "\n %-25s %1s %-7s\e[0m" "Kernel Version" ":" "${KERNEL}"
@@ -554,7 +562,7 @@ function mainMenu() {
 		uninstall
 		;;
 	12)
-		exit 0
+		exitHelium
 		;;
 	*)
 		mainMenu
@@ -564,6 +572,7 @@ function mainMenu() {
 
 initialCheck
 if [[ ! -z $(which dnsmasq) ]] && [[ -e /etc/dnsmasq ]]; then
+	source /etc/silkroad/parameter
 	mainMenu
 else
 	clear
