@@ -469,7 +469,10 @@ function updateHelium() {
 }
 
 function exitHelium() {
-	kill -9 $(pgrep -f /usr/local/sbin/menu)
+	MENU_PID=$(pgrep -f /usr/local/sbin/menu)
+	for i in ${MENU_PID}; do
+		kill -9 $i
+	done
 	menu
 }
 
