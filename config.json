@@ -30,26 +30,26 @@
   "dns": null,
   "inbounds": [
     {
-      "listen": "127.0.0.1",
-      "port": 62789,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1"
-      },
+       "listen": "127.0.0.1",
+       "port": 62789,
+       "protocol": "dokodemo-door",
+       "settings": {
+          "address": "127.0.0.1"
+        },
       "streamSettings": null,
       "tag": "api",
       "sniffing": null
     },
     {
       "listen": "PUBLIC_IP",
-      "port": VMESS_PORT,
+      "port": VMESSWS_PORT,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "UUID_VMESS",
+            "id": "UUID_VMESSWS",
             "flow": "xtls-rprx-direct"
-# vmess
+# vmessws
           }
         ],
         "disableInsecureEncryption": false
@@ -64,7 +64,7 @@
           }
         }
       },
-      "tag": "inbound-VMESS_PORT",
+      "tag": "inbound-VMESSWS_PORT",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -88,12 +88,12 @@
         "decryption": "none",
         "fallbacks": [
           {
-            "path": "/trojanws",
+            "path": "/trojanwstls",
             "dest": TROJANWSTLS_PORT,
             "xver": 1
           },
           {
-            "path": "/vlessws",
+            "path": "/vlesswstls",
             "dest": VLESSWSTLS_PORT,
             "xver": 1
           }
@@ -144,13 +144,47 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/vlessws",
+          "path": "/vlesswstls",
           "headers": {
             "Host": "DOMAIN_NAME"
           }
         }
       },
       "tag": "inbound-VLESSWSTLS_PORT",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": "PUBLIC_IP",
+      "port": VLESSWS_PORT,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "UUID_VLESSWS",
+            "flow": "xtls-rprx-direct"
+# vlessws
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/vlessws",
+          "headers": {
+            "Host": "DOMAIN_NAME"
+          }
+        }
+      },
+      "tag": "inbound-VLESSWS_PORT",
       "sniffing": {
         "enabled": true,
         "destOverride": [
@@ -178,7 +212,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/trojanws",
+          "path": "/trojanwstls",
           "headers": {
             "Host": "DOMAIN_NAME"
           }
@@ -194,7 +228,7 @@
       }
     },
     {
-      "listen": "PUBLIC_IP",
+      "listen": "DOMAIN_NAME",
       "port": TROJAN_PORT,
       "protocol": "trojan",
       "settings": {
@@ -213,7 +247,7 @@
         "xtlsSettings": {
           "serverName": "",
           "alpn": [
-               "http/1.1"
+              "http/1.1"
            ],
           "certificates": [
             {
