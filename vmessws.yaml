@@ -42,7 +42,7 @@ hosts:
   router.asus.com: 192.168.50.1
   services.googleapis.cn: 74.125.193.94
   time.android.com: 203.107.6.88
-  ipv6.msftconnecttest.com: 2a01:111:2003::52
+  #ipv6.msftconnecttest.com: 2a01:111:2003::52
   www.msftconnecttest.com: 13.107.4.52
 routing-mark: 255
 
