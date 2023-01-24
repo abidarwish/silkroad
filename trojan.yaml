@@ -1,0 +1,154 @@
+proxies:
+  - {name: USERNAME, server: DOMAIN_NAME, port: VLESS_PORT, type: trojan, password: UUID, cipher: auto, tls: true, flow: xtls-rprx-direct, skip-cert-verify: true, servername: TELCO_BUG, udp: true}
+proxy-groups:
+  - name: ABIDARWISH
+    type: select
+    proxies:
+      - USERNAME
+      - DIRECT
+script:
+rules:
+  - MATCH,ABIDARWISH
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+mode: rule
+log-level: silent
+external-controller: 0.0.0.0:9090
+experimental:
+  ignore-resolve-fail: true
+external-ui: dashboard
+secret: ""
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: false
+  store-fake-ip: true
+ipv6: false
+dns:
+  enable: true
+  ipv6: false
+  use-host: true
+  # These nameservers are used to resolve the DNS nameserver hostnames below.
+  # Specify IP addresses only
+  default-nameserver:
+    - 1.1.1.1
+    - 1.0.0.1
+  listen: 0.0.0.0:7874
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+    - "swscan.apple.com"
+    - "mesu.apple.com"
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    # === NTP Service ===
+    - "time.*.com"
+    - "time.*.gov"
+    - "time.*.edu.cn"
+    - "time.*.apple.com"
+    - "time1.*.com"
+    - "time2.*.com"
+    - "time3.*.com"
+    - "time4.*.com"
+    - "time5.*.com"
+    - "time6.*.com"
+    - "time7.*.com"
+    - "ntp.*.com"
+    - "ntp.*.com"
+    - "ntp1.*.com"
+    - "ntp2.*.com"
+    - "ntp3.*.com"
+    - "ntp4.*.com"
+    - "ntp5.*.com"
+    - "ntp6.*.com"
+    - "ntp7.*.com"
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - "+.pool.ntp.org"
+    - "time1.cloud.tencent.com"
+    # === Music Service ===
+    ## NetEase
+    - "+.music.163.com"
+    - "+.126.net"
+    ## Baidu
+    - "musicapi.taihe.com"
+    - "music.taihe.com"
+    ## Kugou
+    - "songsearch.kugou.com"
+    - "trackercdn.kugou.com"
+    ## Kuwo
+    - "*.kuwo.cn"
+    ## JOOX
+    - "api-jooxtt.sanook.com"
+    - "api.joox.com"
+    - "joox.com"
+    ## QQ
+    - "+.music.tc.qq.com"
+    - "aqqmusic.tc.qq.com"
+    - "+.stream.qqmusic.qq.com"
+    ## Xiami
+    - "+.xiami.com"
+    ## Migu
+    - "+.music.migu.cn"
+    # === Game Service ===
+    ## Nintendo Switch
+    - "+.srv.nintendo.net"
+    ## Sony PlayStation
+    - "+.stun.playstation.net"
+    ## Microsoft Xbox
+    - "xbox.*.microsoft.com"
+    - "+.xboxlive.com"
+    # === Other ===
+    ## QQ Quick Login
+    - "localhost.ptlogin2.qq.com"
+    ## Golang
+    - "proxy.golang.org"
+    ## STUN Server
+    - "stun.*.*"
+    - "stun.*.*.*"
+    # === 国内 ===
+    - "+.qq.com"
+    - "+.baidu.com"
+    - "+.163.com"
+    - "+.126.net"
+    - "+.taobao.com"
+    - "+.jd.com"
+    - "+.tmall.com"
+    # === NVIDIA ===
+    - "+.nvidia.com"
+    - "+.nvidia.cn"
+    - "+.nvgs.nvidia.com"
+    - "+.nvgs.nvidia.cn"
+    # === NetFlix ===
+    - "+.netflix.com.edgesuite.net"
+    - "+.fast.com"
+    - "+.netflix.com"
+    - "+.netflix.net"
+    - "+.netflixdnstest0.com"
+    - "+.netflixdnstest1.com"
+    - "+.netflixdnstest2.com"
+    - "+.netflixdnstest3.com"
+    - "+.netflixdnstest4.com"
+    - "+.netflixdnstest5.com"
+    - "+.netflixdnstest6.com"
+    - "+.netflixdnstest7.com"
+    - "+.netflixdnstest8.com"
+    - "+.netflixdnstest9.com"
+    - "+.nflxext.com"
+    - "+.nflximg.com"
+    - "+.nflximg.net"
+    - "+.nflxso.net"
+    - "+.nflxvideo.net"
+  nameserver:
+    - 1.1.1.1
+    - 1.0.0.1
+  fallback:
+    - 1.1.1.1
+    - 1.0.0.1
