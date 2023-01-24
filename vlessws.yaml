@@ -1,18 +1,5 @@
 proxies:
-  - {
-      name: USERNAME,
-      server: TELCO_BUG,
-      port: VLESSWS_PORT,
-      type: vless,
-      uuid: UUID,
-      cipher: auto,
-      tls: true,
-      skip-cert-verify: true,
-      servername: TELCO_BUG,
-      network: ws,
-      ws-opts: {path: ${VLESSWS_PATH}, headers: {Host: "${DOMAIN_NAME}"}},
-      udp: true
-    }
+  - {name: USERNAME, server: TELCO_BUG, port: VLESSWS_PORT, type: vless, uuid: UUID, cipher: auto, tls: true, skip-cert-verify: true, servername: TELCO_BUG, network: ws, ws-opts: {path: VLESSWS_PATH, headers: {Host: DOMAIN_NAME}}, udp: true}
 proxy-groups:
   - name: ABIDARWISH
     type: select
@@ -22,38 +9,35 @@ proxy-groups:
 script:
 rules:
   - MATCH,ABIDARWISH
-
-port: 3333
-socks-port: 23456
-redir-port: 23457
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
 allow-lan: true
 mode: rule
-log-level: error
-external-controller: 192.168.50.1:9990
+log-level: silent
+external-controller: 0.0.0.0:9090
 experimental:
   ignore-resolve-fail: true
 external-ui: dashboard
-secret: "clash"
+secret: ""
+bind-address: "*"
+unified-delay: true
 profile:
   store-selected: false
+  store-fake-ip: true
 ipv6: false
-
-hosts:
-  router.asus.com: 192.168.50.1
-  services.googleapis.cn: 74.125.193.94
-  time.android.com: 203.107.6.88
-  www.msftconnecttest.com: 13.107.4.52
-routing-mark: 255
-
 dns:
   enable: true
   ipv6: false
+  use-host: true
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
   default-nameserver:
     - 1.1.1.1
     - 1.0.0.1
-  listen: :23453
+  listen: 0.0.0.0:7874
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -163,5 +147,8 @@ dns:
     - "+.nflxso.net"
     - "+.nflxvideo.net"
   nameserver:
+    - 1.1.1.1
+    - 1.0.0.1
+  fallback:
     - 1.1.1.1
     - 1.0.0.1
