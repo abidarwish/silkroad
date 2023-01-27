@@ -228,7 +228,7 @@
       }
     },
     {
-      "listen": "DOMAIN_NAME",
+      "listen": "PUBLIC_IP",
       "port": TROJAN_PORT,
       "protocol": "trojan",
       "settings": {
