@@ -11,13 +11,13 @@
         "outboundTag": "api",
         "type": "field"
       },
-      {
-        "ip": [
-          "geoip:private"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
+      #{
+      #  "ip": [
+      #    "geoip:private"
+      #  ],
+      #  "outboundTag": "blocked",
+      #  "type": "field"
+      #},
       {
         "outboundTag": "blocked",
         "protocol": [
