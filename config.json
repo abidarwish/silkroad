@@ -11,13 +11,13 @@
         "outboundTag": "api",
         "type": "field"
       },
-      #{
-      #  "ip": [
-      #    "geoip:private"
-      #  ],
-      #  "outboundTag": "blocked",
-      #  "type": "field"
-      #},
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blocked",
+        "type": "field"
+      },
       {
         "outboundTag": "blocked",
         "protocol": [
@@ -87,6 +87,9 @@
         ],
         "decryption": "none",
         "fallbacks": [
+          {
+            "dest": 80
+          },
           {
             "path": "/trojanwstls",
             "dest": TROJANWSTLS_PORT,
