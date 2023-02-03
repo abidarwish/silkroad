@@ -6,11 +6,11 @@ server {
 	
 	index helium.html;
 
-	server_name uc3.abidarwish.online;
+	server_name DOMAIN_NAME;
 
 	location /vmessws {
 		proxy_redirect off;
-		proxy_pass http://94.237.74.74:81;
+		proxy_pass http://PUBLIC_IP:VMESSWS_PORT;
 		proxy_http_version 1.1;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -21,7 +21,7 @@ server {
 
 	location /vlessws {
 		proxy_redirect off;
-		proxy_pass http://94.237.74.74:445;
+		proxy_pass http://PUBLIC_IP:VLESSWS_PORT;
 		proxy_http_version 1.1;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
