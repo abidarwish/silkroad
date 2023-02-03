@@ -12,13 +12,6 @@
         "type": "field"
       },
       {
-        "ip": [
-          "geoip:private"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
-      {
         "outboundTag": "blocked",
         "protocol": [
           "bittorrent"
@@ -74,7 +67,6 @@
       }
     },
     {
-      "listen": "PUBLIC_IP",
       "port": VLESS_PORT,
       "protocol": "vless",
       "settings": {
@@ -87,6 +79,9 @@
         ],
         "decryption": "none",
         "fallbacks": [
+          {
+            "dest": 80
+          },
           {
             "path": "/trojanwstls",
             "dest": TROJANWSTLS_PORT,
