@@ -7,13 +7,26 @@ Silk Road is an autoscript to setup a server to run vmess/vless/trojan VPN to by
 <p align="center">
   <img src="ookla_speedtest.png">
 </p>
+<br>
 <p align="center">
   <img src="fireprobe.png">
 </p>
 
 Silk Road will help you manage your users (clients) through terminal. Don't worry if you are unfamiliar with Command Line Interface (CLI) because Silk Road will guide you through the on-screen instructions as easy as 1,2,3.
 
+<p align="center">
+  <img src="cli.png">
+</p>
+
 Not only that, Silk Road enables you to check multilogin users so that you can block their IDs. It also enables you to block unwanted url such as porn/torrent/ads/malware/phishing and many more by integrating [Helium app](https://github.com/abidarwish/helium).
+
+<p align="center">
+  <img src="cute_bear.png">
+</p>
+<br>
+<p align="center">
+  <img src="d3ward.png">
+</p>
 
 Requirement: Ubuntu VPS.
 
