@@ -7,10 +7,6 @@ Silk Road is an autoscript to setup a server to run vmess/vless/trojan VPN to by
 <p align="center">
   <img src="ookla_speedtest.png">
 </p>
-<br>
-<p align="center">
-  <img src="fireprobe.png">
-</p>
 
 Silk Road will help you manage your users (clients) through terminal. Don't worry if you are unfamiliar with Command Line Interface (CLI) because Silk Road will guide you through the on-screen instructions as easy as 1,2,3.
 
