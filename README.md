@@ -28,7 +28,7 @@ With Silk Road, you may get 100% of d3ward test. You can measure your device adb
   <img src="d3ward.png"></a>
 </p>
 
-Every device which is connected to Silk Road server will receive warning if it tries to open blocked url such as pornhub.com like the photo below. No device could bypass this measurement even if you change on device DNS IP address to other providers like Google DNS as Silk Road will ignore it anyway.
+Every device which is connected to Silk Road server will receive a friendly message if it tries to open blocked url such as pornhub.com like the photo below. No device could bypass this measurement even if you change on device DNS IP address to other providers like Google DNS as Silk Road will ignore it anyway.
 
 <p align="center"><a href="https://github.com/abidarwish/helium" target="_blank">
   <img src="helium.png"></a>
