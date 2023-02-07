@@ -30,7 +30,7 @@ Not only that, Silk Road enables you to check multilogin users so that you can b
 
 Requirement: Ubuntu VPS.
 
-To register VPS IP and getting premium technical support, please contact: [Abi Darwish](https://t.me/abidarwish)
+For premium technical support, please contact: [Abi Darwish](https://t.me/abidarwish)
 
 To install, SSH into your freshly deployed VPS and run this command:
 
