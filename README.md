@@ -56,7 +56,7 @@ For premium technical support, please contact: [Abi Darwish](https://t.me/abidar
 
 ### How To Install
 
-To install, SSH into your freshly deployed VPS and run this command:
+To install, SSH into your freshly deployed Ubuntu server and run this command:
 
 ```
 rm -rf install && wget -q "https://raw.githubusercontent.com/abidarwish/silkroad/main/install" && chmod +x install && ./install
