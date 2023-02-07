@@ -49,7 +49,7 @@ With Silk Road, you may get 100% of d3ward test. You can measure your device adb
 
 Ubuntu VPS only.
 
-Use this referral code and get €25 free credit to deploy a fresh Ubuntu Server:
+Use this referral code and get €25 free credit to deploy a fresh Ubuntu server:
 https://upcloud.com/signup/?promo=7J3Z69
 
 For premium technical support, please contact: [Abi Darwish](https://t.me/abidarwish)
