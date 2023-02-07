@@ -2,7 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Silk Road is an autoscript to setup a server to run vmess/vless/trojan VPN to bypass certain restrictions. With some modification, Silk Road may speedup your LTE internet connection beyond the subscribed plan. Look at these speedtest results, Silk Road has bypassed the telco speed which initially capped at 3mbps to skyrocket to more than 100mbps (you might get even higher speed with a better modem and router).
+Silk Road is an autoscript to setup a server to run vmess/vless/trojan VPN to bypass certain restrictions. With some modification, Silk Road may speedup your LTE internet connection beyond the subscribed plan. Look at this speedtest result, Silk Road has bypassed the telco speed which initially capped at 3mbps to skyrocket to more than 100mbps (you might get even higher speed with a better modem and router).
 
 <p align="center">
   <img src="ookla_speedtest.png">
