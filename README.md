@@ -1,5 +1,15 @@
 # Silk Road
-An autoscript to setup xray server to run vmess/vless/trojan to bypass certain restrictions.
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+Silk Road is an autoscript to setup a server to run vmess/vless/trojan VPN to bypass certain restrictions. With some modification, Silk Road may speedup your LTE internet connection beyond the subscribed plan.
+
+<p align="center">
+  <img src="ookla_speedtest.png">
+</p>
+<p align="center">
+  <img src="fireprobe.png">
+</p>
 
 Silk Road will help you manage your users (clients) through terminal. Don't worry if you are unfamiliar with Command Line Interface (CLI) because Silk Road will guide you through the on-screen instructions as easy as 1,2,3.
 
