@@ -22,16 +22,16 @@ Not only that, Silk Road enables you to check multilogin users so that you can b
 
 It also enables you to block unwanted url such as porn, torrent, ads, malware, phishing and many more by integrating [Helium app](https://github.com/abidarwish/helium).
 
+Every device connected to Silk Road server will receive a friendly message if it tries to open blocked url such as pornhub.com like the photo below. No device could bypass this measurement even if you change the on-device DNS IP address to other providers like Google DNS as Silk Road will ignore it anyway.
+
+<p align="center"><a href="https://github.com/abidarwish/helium" target="_blank">
+  <img src="helium.png"></a>
+</p>
+
 With Silk Road, you may get 100% of d3ward test. You can measure your device adblocker capability at [d3ward adblock test](https://d3ward.github.io/toolz/adblock.html).
 
 <p align="center"><a href="https://d3ward.github.io/toolz/adblock.html" target="_blank">
   <img src="d3ward.png"></a>
-</p>
-
-Every device which is connected to Silk Road server will receive a friendly message if it tries to open blocked url such as pornhub.com like the photo below. No device could bypass this measurement even if you change on device DNS IP address to other providers like Google DNS as Silk Road will ignore it anyway.
-
-<p align="center"><a href="https://github.com/abidarwish/helium" target="_blank">
-  <img src="helium.png"></a>
 </p>
 
 Requirement: Ubuntu VPS only.
