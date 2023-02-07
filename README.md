@@ -24,7 +24,7 @@ Not only that, Silk Road enables you to check multilogin users so that you can b
   <img src="d3ward.png"></a>
 </p>
 <br>
-<p align="center">
+<p align="center"><a href="https://github.com/abidarwish/helium" target="_blank"
   <img src="helium.png">
 </p>
 
