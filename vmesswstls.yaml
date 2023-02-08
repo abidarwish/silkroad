@@ -2,7 +2,7 @@ proxies:
   - {
       name: USERNAME,
       server: TELCO_BUG,
-      port: VMESSWSTLS_PORT,
+      port: VLESS_PORT,
       type: vmess,
       uuid: UUID,
       cipher: auto,
