@@ -34,6 +34,37 @@
       "sniffing": null
     },
     {
+      "listen": "127.0.0.1",
+      "port": VMESSWSTLS_PORT,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "UUID_VMESSWSTLS",
+            "flow": "xtls-rprx-direct"
+# vmesswstls
+          }
+        ],
+        "disableInsecureEncryption": false
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "acceptProxyProtocol": true,
+          "path": "/vmesswstls"
+        }
+      },
+    	"tag": "inbound-VMESSWSTLS_PORT",
+      	"sniffing": {
+         "enabled": true,
+         "destOverride": [
+          	"http",
+          	"tls"
+        ]
+      }
+    },
+    {
       "listen": "PUBLIC_IP",
       "port": VMESSWS_PORT,
       "protocol": "vmess",
@@ -51,10 +82,7 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/vmessws",
-          "headers": {
-            "Host": "DOMAIN_NAME"
-          }
+          "path": "/vmessws"
         }
       },
       "tag": "inbound-VMESSWS_PORT",
@@ -83,13 +111,18 @@
             "dest": 80
           },
           {
-            "path": "/trojanwstls",
-            "dest": TROJANWSTLS_PORT,
+            "path": "/vmesswstls",
+            "dest": VMESSWSTLS_PORT,
             "xver": 1
           },
           {
             "path": "/vlesswstls",
             "dest": VLESSWSTLS_PORT,
+            "xver": 1
+          },
+          {
+            "path": "/trojanwstls",
+            "dest": TROJANWSTLS_PORT,
             "xver": 1
           }
         ]
@@ -139,10 +172,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/vlesswstls",
-          "headers": {
-            "Host": "DOMAIN_NAME"
-          }
+          "path": "/vlesswstls"
         }
       },
       "tag": "inbound-VLESSWSTLS_PORT",
@@ -173,10 +203,7 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/vlessws",
-          "headers": {
-            "Host": "DOMAIN_NAME"
-          }
+          "path": "/vlessws"
         }
       },
       "tag": "inbound-VLESSWS_PORT",
@@ -207,10 +234,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/trojanwstls",
-          "headers": {
-            "Host": "DOMAIN_NAME"
-          }
+          "path": "/trojanwstls"
         }
       },
       "tag": "inbound-TROJANWSTLS_PORT",
