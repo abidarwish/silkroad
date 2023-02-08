@@ -8,9 +8,9 @@ proxies:
       cipher: auto,
       tls: true,
       skip-cert-verify: true,
-      servername: TELCO_BUG,
+      servername: DOMAIN_NAME,
       network: ws,
-      ws-opts: { path: wss://WSSPATH, headers: { Host: HOST } },
+      ws-opts: { path: WSSPATH, headers: { Host: HOST } },
       udp: true,
     }
 proxy-groups:
