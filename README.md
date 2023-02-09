@@ -27,7 +27,7 @@ Silk Road will help you manage your users (clients) through terminal. Don't worr
 
 Not only that, Silk Road enables you to check multilogin users so that you can block their IDs.
 
-### Protect You and Your Love Ones From Malwares
+### Protect You and Your Loved Ones From Malwares
 
 It also enables you to block unwanted url such as porn, torrent, ads, malware, phishing and many more by integrating [Helium app](https://github.com/abidarwish/helium).
 
