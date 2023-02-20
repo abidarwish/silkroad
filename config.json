@@ -2,47 +2,19 @@
   "log": {
     "access": "/var/log/xray/access.log"
   },
-  "routing": {
-    "rules": [
-      {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ],
-        "type": "field"
-      }
-    ]
-  },
-  "dns": null,
   "inbounds": [
     {
-       "listen": "127.0.0.1",
-       "port": 62789,
-       "protocol": "dokodemo-door",
-       "settings": {
-          "address": "127.0.0.1"
-        },
-      "streamSettings": null,
-      "tag": "api",
-      "sniffing": null
-    },
-    {
       "listen": "127.0.0.1",
-      "port": VMESSWSTLS_PORT,
+      "port": 82,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "UUID_VMESSWSTLS",
+            "id": "cc304591-33b0-42af-86db-2734b10616ce",
             "flow": "xtls-rprx-direct"
 # vmesswstls
+# #start i7tls 2025-11-04 useinsider.com uc3.abidarwish.online vmesswstls
+#},{"id": "66fbcbc7-c4e2-4743-9305-eb826c4a8015","alterId": 0,"email": "i7tls"
           }
         ],
         "disableInsecureEncryption": false
@@ -54,26 +26,32 @@
           "acceptProxyProtocol": true,
           "path": "/vmesswstls"
         }
-      },
-    	"tag": "inbound-VMESSWSTLS_PORT",
-      	"sniffing": {
-         "enabled": true,
-         "destOverride": [
-          	"http",
-          	"tls"
-        ]
       }
     },
     {
-      "listen": "PUBLIC_IP",
-      "port": VMESSWS_PORT,
+      "listen": "94.237.74.74",
+      "port": 81,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "UUID_VMESSWS",
+            "id": "2ccf50ae-abe0-4004-b679-7438886d1f0b",
             "flow": "xtls-rprx-direct"
 # vmessws
+# start test 2023-02-21 useinsider.com uc3.abidarwish.online vmessws
+},{"id": "db7fe345-f3b5-49a4-9200-16a4676aadb7","alterId": 0,"email": "test"
+# start darling 2025-11-03 useinsider.com uc3.abidarwish.online vmessws
+},{"id": "2efe7822-223e-4ca9-a98a-f140777f4bc3","alterId": 0,"email": "darling"
+# start ipad 2025-10-30 useinsider.com uc3.abidarwish.online vmessws
+},{"id": "0d50e3fc-74ac-406e-926a-877d8bee4cf1","alterId": 0,"email": "ipad"
+# start farid 2023-03-07 useinsider.com uc3.abidarwish.online vmessws
+},{"id": "de0ad7da-86ea-45f5-9e16-c0db623acd2b","alterId": 0,"email": "farid"
+# start ac86u 2025-10-26 useinsider.com uc3.abidarwish.online vmessws
+},{"id": "ba614f98-c3e6-4a4b-a2e9-67d07fb39519","alterId": 0,"email": "ac86u"
+# start smiley 2023-03-05 useinsider.com uc3.abidarwish.online vmessws
+},{"id": "824ea6e5-d018-4369-bd49-d945e46a2cba","alterId": 0,"email": "smiley"
+# #start i7 2025-10-26 useinsider.com uc3.abidarwish.online vmessws
+#},{"id": "f0766659-4152-4221-afee-ad368b9e087c","alterId": 0,"email": "i7"
           }
         ],
         "disableInsecureEncryption": false
@@ -84,24 +62,18 @@
         "wsSettings": {
           "path": "/vmessws"
         }
-      },
-      "tag": "inbound-VMESSWS_PORT",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     },
     {
-      "port": VLESS_PORT,
+      "port": 443,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "UUID_VLESS",
-            "flow": "xtls-rprx-direct"
+            "id": "e893bf9d-4656-466a-8da2-0a2e63a91292",
+            "flow": "xtls-rprx-direct",
+            "level": 0,
+            "email": "Silkroad"
 # vless
           }
         ],
@@ -112,17 +84,17 @@
           },
           {
             "path": "/vmesswstls",
-            "dest": VMESSWSTLS_PORT,
+            "dest": 82,
             "xver": 1
           },
           {
             "path": "/vlesswstls",
-            "dest": VLESSWSTLS_PORT,
+            "dest": 444,
             "xver": 1
           },
           {
             "path": "/trojanwstls",
-            "dest": TROJANWSTLS_PORT,
+            "dest": 8181,
             "xver": 1
           }
         ]
@@ -131,35 +103,24 @@
         "network": "tcp",
         "security": "xtls",
         "xtlsSettings": {
-          "serverName": "",
-          "alpn": [
-              "http/1.1"
-           ],
+          "alpn": ["http/1.1"],
           "certificates": [
             {
-              "certificateFile": "/etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem",
-              "keyFile": "/etc/letsencrypt/live/DOMAIN_NAME/privkey.pem"
+              "certificateFile": "/etc/letsencrypt/live/uc3.abidarwish.online/fullchain.pem",
+              "keyFile": "/etc/letsencrypt/live/uc3.abidarwish.online/privkey.pem"
             }
           ]
         }
-      },
-      "tag": "inbound-VLESS_PORT",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     },
     {
       "listen": "127.0.0.1",
-      "port": VLESSWSTLS_PORT,
+      "port": 444,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "UUID_VLESSWSTLS",
+            "id": "1775b31f-441a-4960-80b9-3a4b12ee0970",
             "flow": "xtls-rprx-direct"
 # vlesswstls
           }
@@ -174,24 +135,16 @@
           "acceptProxyProtocol": true,
           "path": "/vlesswstls"
         }
-      },
-      "tag": "inbound-VLESSWSTLS_PORT",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     },
     {
-      "listen": "PUBLIC_IP",
-      "port": VLESSWS_PORT,
+      "listen": "94.237.74.74",
+      "port": 445,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "UUID_VLESSWS",
+            "id": "5ce8be36-f9b8-4912-b4e4-111c259ee245",
             "flow": "xtls-rprx-direct"
 # vlessws
           }
@@ -205,24 +158,16 @@
         "wsSettings": {
           "path": "/vlessws"
         }
-      },
-      "tag": "inbound-VLESSWS_PORT",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     },
     {
       "listen": "127.0.0.1",
-      "port": TROJANWSTLS_PORT,
+      "port": 8181,
       "protocol": "trojan",
       "settings": {
         "clients": [
           {
-            "password": "UUID_TROJANWSTLS",
+            "password": "2836c0a2-6004-440e-a6a9-057eed5025d4",
             "flow": "xtls-rprx-direct"
 # trojanwstls
           }
@@ -236,88 +181,12 @@
           "acceptProxyProtocol": true,
           "path": "/trojanwstls"
         }
-      },
-      "tag": "inbound-TROJANWSTLS_PORT",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "listen": "PUBLIC_IP",
-      "port": TROJAN_PORT,
-      "protocol": "trojan",
-      "settings": {
-        "clients": [
-          {
-            "password": "UUID_TROJAN",
-            "flow": "xtls-rprx-direct"
-# trojan
-          }
-        ],
-        "fallbacks": []
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "xtls",
-        "xtlsSettings": {
-          "serverName": "",
-          "alpn": [
-              "http/1.1"
-           ],
-          "certificates": [
-            {
-              "certificateFile": "/etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem",
-              "keyFile": "/etc/letsencrypt/live/DOMAIN_NAME/privkey.pem"
-            }
-          ]
-        },
-        "tcpSettings": {
-          "header": {
-            "type": "none"
-          }
-        }
-      },
-      "tag": "inbound-TROJAN_PORT",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
+      "protocol": "freedom"
     }
-  ],
-  "transport": null,
-  "policy": {
-    "system": {
-      "statsInboundDownlink": true,
-      "statsInboundUplink": true
-    }
-  },
-  "api": {
-    "services": [
-      "HandlerService",
-      "LoggerService",
-      "StatsService"
-    ],
-    "tag": "api"
-  },
-  "stats": {},
-  "reverse": null,
-  "fakeDns": null
+  ]
 }
