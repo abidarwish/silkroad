@@ -89,7 +89,7 @@
           "certificates": [
             {
               "certificateFile": "/etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem",
-              "keyFile": "/etc/letsencrypt/live/DOMAIN_NAMEe/privkey.pem"
+              "keyFile": "/etc/letsencrypt/live/DOMAIN_NAME/privkey.pem"
             }
           ]
         }
