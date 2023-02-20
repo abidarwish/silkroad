@@ -56,6 +56,12 @@ For premium technical support, please contact: [Abi Darwish](https://t.me/abidar
 
 ### How To Install
 
+NOTE: For Ubuntu 22.04, if you encounter libcrypto.so.1.1 error, please run this command before installing Silk Road:
+
+```
+source /etc/os-release && [[ ${VERSION_ID} == 22.04 ]] && wget -q "https://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.1_1.1.0l-1~deb9u6_amd64.deb" && dpkg -i libssl1.1*.deb
+```
+
 To install, SSH into your freshly deployed Ubuntu server and run this command:
 
 ```
