@@ -1,5 +1,5 @@
 proxies:
-  - {name: USERNAME, server: TELCO_BUG, port: VLESS_PORT, type: vless, uuid: UUID, cipher: auto, tls: true, skip-cert-verify: true, servername: SNI, network: ws, ws-opts: {path: wss://WSSPATH, headers: {Host: HOST}}, udp: true}
+  - {name: USERNAME, server: TELCO_BUG, port: VLESS_PORT, type: vless, uuid: UUID, cipher: auto, tls: true, skip-cert-verify: true, servername: SNI, network: ws, ws-opts: {path: WSSPATH, headers: {Host: HOST}}, udp: true}
 proxy-groups:
   - name: ABIDARWISH
     type: select
