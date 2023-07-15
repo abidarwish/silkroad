@@ -1,5 +1,5 @@
 proxies:
-  - {name: USERNAME, server: TELCO_BUG, port: NGINX_PORT, type: vmess, uuid: UUID, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: SNI, network: ws, ws-opts: {path: VMESSWS_PATH, headers: {Host: HOST}}, udp: true}
+  - {name: USERNAME, server: TELCO_BUG, port: NGINX_PORT, type: vmess, uuid: UUID, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: VMESSWS_PATH, headers: {Host: HOST}}, udp: true}
 proxy-groups:
   - name: SILKROAD
     type: select
