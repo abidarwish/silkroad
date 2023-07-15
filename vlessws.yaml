@@ -32,8 +32,6 @@ dns:
   enable: true
   ipv6: true
   use-host: true
-  # These nameservers are used to resolve the DNS nameserver hostnames below.
-  # Specify IP addresses only
   default-nameserver:
     - 1.1.1.1
     - 1.0.0.1
