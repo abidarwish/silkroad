@@ -1,14 +1,14 @@
 proxies:
   - {name: USERNAME, server: TELCO_BUG, port: VLESS_PORT, type: vmess, uuid: UUID, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: SNI, network: ws, ws-opts: {path: WSSPATH, headers: {Host: HOST}}, udp: true}
 proxy-groups:
-  - name: ABIDARWISH
+  - name: SILKROAD
     type: select
     proxies:
       - USERNAME
       - DIRECT
 script:
 rules:
-  - MATCH,ABIDARWISH
+  - MATCH,SILKROAD
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -25,15 +25,13 @@ secret: ""
 bind-address: "*"
 unified-delay: true
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
-ipv6: false
+ipv6: true
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   use-host: true
-  # These nameservers are used to resolve the DNS nameserver hostnames below.
-  # Specify IP addresses only
   default-nameserver:
     - 1.1.1.1
     - 1.0.0.1
