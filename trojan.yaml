@@ -6,7 +6,6 @@ proxy-groups:
     proxies:
       - USERNAME
       - DIRECT
-script:
 rules:
   - MATCH,SILKROAD
 port: 7890
@@ -25,7 +24,7 @@ secret: ""
 bind-address: "*"
 unified-delay: true
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 ipv6: true
 dns:
