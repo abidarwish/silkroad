@@ -54,10 +54,10 @@ https://upcloud.com/signup/?promo=7J3Z69
 
 For premium technical support, please contact: [Abi Darwish](https://t.me/abidarwish)
 
-### How To Install
+<!--### How To Install
 
 To install, SSH into your freshly deployed Ubuntu server and run this command:
 
 ```
 rm -rf install && wget -q "https://raw.githubusercontent.com/abidarwish/silkroad/main/install" && chmod +x install && ./install
-```
+```-->
