@@ -47,7 +47,7 @@ With Silk Road, you may get 100% of d3ward test. You can measure your device adb
 
 ### Requirement
 
-Ubuntu 20.04 and later only.
+Debian 10 or Ubuntu 20.04 are reccommended. 
 
 Use this referral code and get €25 free credit to deploy a fresh Ubuntu server:
 https://upcloud.com/signup/?promo=7J3Z69
